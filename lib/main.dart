@@ -17,6 +17,7 @@ void main() {
 // kodu çaldım
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  //sdafasdf
 
   @override
   Widget build(BuildContext context) {
