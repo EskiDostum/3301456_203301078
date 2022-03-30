@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobilprogramlamaodev/constants.dart';
 import '../widgets/drawerbuild.dart';
 
 class ErrorPage extends StatelessWidget {
@@ -9,15 +10,16 @@ class ErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      drawer: drawerbuild(),
-      appBar: AppBar(),
-      body: Container(
-        height: 100.h,
-        width: 100.w,
-        color: Colors.red,
-        child: Text(
-          "sayfa tasarlanmamıştır",
-          style: TextStyle(fontSize: 50.sp, color: Colors.red),
+      drawer: const DrawerBuildWidget(),
+      appBar: appbar,
+      body: Center(
+        child: SizedBox(
+          height: 100.h,
+          width: 200.w,
+          child: Text(
+            "sayfa tasarlanmamıştır",
+            style: TextStyle(fontSize: 25.sp, color: Colors.red),
+          ),
         ),
       ),
     );

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-
+import 'package:mobilprogramlamaodev/constants.dart';
+import 'package:mobilprogramlamaodev/widgets/textformfieldbuild.dart';
 import '../widgets/butonbuild1.dart';
 import '../widgets/drawerbuild.dart';
 
@@ -16,8 +16,8 @@ class _PersonUpdateState extends State<PersonUpdate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: drawerbuild(),
+      appBar: appbar,
+      drawer: DrawerBuildWidget(),
       body: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -40,26 +40,26 @@ class _PersonUpdateState extends State<PersonUpdate> {
                     Container(
                       width: 50,
                     ),
-                    const Text(" isim :")
+                    Text(" Ad-Soyad = $namelastname ")
                   ],
                 ),
                 // textformfiedl kısmı gelecek
-                SizedBox(width: 300, height: 65, child: Text("data")),
+                SizedBox(width: 300, height: 65, child: namelastname),
                 Row(
                   children: [
                     Container(
                       width: 50,
                     ),
-                    const Text(" Soyisim ")
+                    const Text("Şifreniz")
                   ],
                 ),
                 // textformfiedl kısmı gelecek
-                SizedBox(width: 300, height: 65, child: Text("data")),
+                SizedBox(width: 300, height: 65, child: password),
               ],
             ),
             butonbuild(
                 text: "Güncelle",
-                butoncolor: 0xFF883BA0,
+                buttonColor: Colors.purple,
                 valuelevation: 0.2,
                 onPressed: () {}),
           ],
@@ -68,3 +68,6 @@ class _PersonUpdateState extends State<PersonUpdate> {
     );
   }
 }
+
+var namelastname = buildinput(helpertext: "Ad-Soyad");
+var password = buildinput(helpertext: "");

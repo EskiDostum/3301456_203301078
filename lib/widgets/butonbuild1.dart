@@ -10,8 +10,7 @@ Widget butonbuild(
     required Function onPressed,
     double valuelevation = 10.0,
     double fontsizevalue = 30.0,
-    int butoncolor = 0XFFFFFFFF,
-    Color buttonColor = Colors.red}) {
+    Color buttonColor = Colors.white}) {
   return ElevatedButton(
       // primary kendi üstünde ayarlamalar yaparken onprimary önünde duracak üzerinden ayarlamalar yapmakta
       style: ElevatedButton.styleFrom(
