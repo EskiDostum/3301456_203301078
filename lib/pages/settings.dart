@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:mobilprogramlamaodev/constants.dart';
+import 'package:mobilprogramlamaodev/widgets/constants.dart';
 import 'package:mobilprogramlamaodev/pages/person_update.dart';
-import '../colors.dart';
+import '../models/colors.dart';
 import '../widgets/butonbuild1.dart';
 import '../widgets/drawerbuild.dart';
 import 'errorpage.dart';
@@ -22,7 +22,7 @@ class Settings extends StatelessWidget {
           butonbuild(
               text: "Kişisel Bilgileri Güncelle",
               onPressed: () {
-                Get.to(const PersonUpdate());
+                Get.to(PersonUpdate());
               }),
           butonbuild(
               text: "Kart Bilgileri",

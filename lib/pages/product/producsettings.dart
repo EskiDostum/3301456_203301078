@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobilprogramlamaodev/constants.dart';
+import 'package:mobilprogramlamaodev/widgets/constants.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
 import 'package:mobilprogramlamaodev/widgets/butonbuild1.dart';
 import 'package:mobilprogramlamaodev/widgets/drawerbuild.dart';
 
-import '../../colors.dart';
+import '../../models/colors.dart';
 
 class ProductSettingPage extends StatelessWidget {
   const ProductSettingPage({Key? key}) : super(key: key);

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobilprogramlamaodev/constants.dart';
+import 'package:mobilprogramlamaodev/widgets/constants.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
-import 'package:mobilprogramlamaodev/models/veriler.dart';
+import 'package:mobilprogramlamaodev/models/imagelist.dart';
 import 'package:mobilprogramlamaodev/widgets/drawerbuild.dart';
 import 'package:mobilprogramlamaodev/widgets/home_scrollvie_widget.dart';
-import '../colors.dart';
+import '../models/colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

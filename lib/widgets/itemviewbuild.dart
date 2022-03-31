@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobilprogramlamaodev/colors.dart';
+import 'package:mobilprogramlamaodev/models/colors.dart';
 
 //eşyaların yazıları ile birlikte ayrıntılı gösterildiği widget tasarımıdır
 //

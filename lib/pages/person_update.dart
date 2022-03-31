@@ -1,13 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:mobilprogramlamaodev/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:mobilprogramlamaodev/widgets/constants.dart';
+import 'package:mobilprogramlamaodev/models/insaninfo.dart';
+import 'package:mobilprogramlamaodev/pages/kayitol.dart';
+import 'package:mobilprogramlamaodev/routes/apppages.dart';
 import 'package:mobilprogramlamaodev/widgets/textformfieldbuild.dart';
 import '../widgets/butonbuild1.dart';
 import '../widgets/drawerbuild.dart';
 
 class PersonUpdate extends StatefulWidget {
-  const PersonUpdate({Key? key}) : super(key: key);
-
+  PersonUpdate({Key? key}) : super(key: key);
+  static TextEditingController nametext = TextEditingController();
+  static TextEditingController passwordtext = TextEditingController();
+  static String name = "";
   @override
   State<PersonUpdate> createState() => _PersonUpdateState();
 }
@@ -40,11 +47,16 @@ class _PersonUpdateState extends State<PersonUpdate> {
                     Container(
                       width: 50,
                     ),
-                    Text(" Ad-Soyad = $namelastname ")
+                    Text(" Ad-Soyad = ${PersonUpdate.name} ")
                   ],
                 ),
                 // textformfiedl kısmı gelecek
-                SizedBox(width: 300, height: 65, child: namelastname),
+                SizedBox(
+                    width: 300.w,
+                    height: 65.h,
+                    child: buildinput(
+                        helpertext: "Ad Soyad",
+                        controller: KayitOlPage.nametext)),
                 Row(
                   children: [
                     Container(
@@ -54,14 +66,34 @@ class _PersonUpdateState extends State<PersonUpdate> {
                   ],
                 ),
                 // textformfiedl kısmı gelecek
-                SizedBox(width: 300, height: 65, child: password),
+                SizedBox(
+                    width: 300.w,
+                    height: 65.h,
+                    child: buildinput(
+                      helpertext: "Şifreniz",
+                      controller: KayitOlPage.passwordtext,
+                    )),
               ],
             ),
             butonbuild(
                 text: "Güncelle",
                 buttonColor: Colors.purple,
                 valuelevation: 0.2,
-                onPressed: () {}),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return alertDialoga();
+                      });
+
+                  setState(() {
+                    PersonUpdate.name = KayitOlPage.nametext.text.toString();
+                    KayitOlPage.nametext.text = "";
+                    Future.delayed(const Duration(seconds: 3), () {
+                      Get.toNamed(Routes.HOME);
+                    });
+                  });
+                }),
           ],
         ),
       ),
@@ -69,5 +101,17 @@ class _PersonUpdateState extends State<PersonUpdate> {
   }
 }
 
-var namelastname = buildinput(helpertext: "Ad-Soyad");
-var password = buildinput(helpertext: "");
+Widget alertDialoga() {
+  return AlertDialog(
+    title: Text("İşleminiz Gerçekleşmiştir"),
+    content: SizedBox(
+      height: 45.h,
+      child: Column(
+        children: [
+          Text("İsminiz ${PersonUpdate.name}"),
+          Text("Şifreniz : ${KayitOlPage.passwordtext.text}")
+        ],
+      ),
+    ),
+  );
+}

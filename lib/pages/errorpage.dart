@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobilprogramlamaodev/constants.dart';
+import 'package:mobilprogramlamaodev/widgets/constants.dart';
 import '../widgets/drawerbuild.dart';
 
 class ErrorPage extends StatelessWidget {

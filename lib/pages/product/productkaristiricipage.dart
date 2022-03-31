@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mobilprogramlamaodev/constants.dart';
+import 'package:mobilprogramlamaodev/widgets/constants.dart';
 import 'package:mobilprogramlamaodev/models/%C3%BCr%C3%BCnverileri.dart';
-import 'package:mobilprogramlamaodev/models/veriler.dart';
+import 'package:mobilprogramlamaodev/models/imagelist.dart';
 import 'package:mobilprogramlamaodev/widgets/drawerbuild.dart';
 import 'package:mobilprogramlamaodev/widgets/itemviewbuild.dart';
 
-import '../../colors.dart';
+import '../../models/colors.dart';
 
 class Karistiricipage extends StatelessWidget {
   const Karistiricipage({Key? key}) : super(key: key);

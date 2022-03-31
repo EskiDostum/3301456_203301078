@@ -59,12 +59,12 @@ class DrawerBuildWidget extends StatelessWidget {
                   icon: Icons.login,
                   text: "Giriş ",
                   onPressed: () {
-                    Get.toNamed(Routes.SIGNUP);
+                    Get.toNamed(Routes.SIGNIN);
                   }),
               butonbuild2(
                   text: "Çıkış",
                   onPressed: () {
-                    Get.toNamed(Routes.SIGNUP);
+                    Get.toNamed(Routes.SIGNIN);
                   },
                   icon: Icons.logout)
             ],

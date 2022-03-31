@@ -6,7 +6,8 @@ import 'package:mobilprogramlamaodev/widgets/textformfieldbuild.dart';
 
 class SignInpage extends StatelessWidget {
   const SignInpage({Key? key}) : super(key: key);
-
+  static final TextEditingController nametext = TextEditingController();
+  static final TextEditingController passwordtext = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +43,9 @@ class SignInpage extends StatelessWidget {
                       SizedBox(
                         height: 65,
                         width: 300,
-                        child: buildinput(helpertext: "Kullanıcı Adınız"),
+                        child: buildinput(
+                            helpertext: "Kullanıcı Adınız",
+                            controller: nametext),
                       ),
                       const Text(
                         "Şifreniz",
@@ -51,7 +54,8 @@ class SignInpage extends StatelessWidget {
                       SizedBox(
                         height: 65,
                         width: 300,
-                        child: buildinput(helpertext: "Şifreniz"),
+                        child: buildinput(
+                            helpertext: "Şifreniz", controller: passwordtext),
                       ),
                     ]),
               ),
@@ -74,7 +78,9 @@ class SignInpage extends StatelessWidget {
                       child: butonbuild(
                           buttonColor: Colors.blueGrey.shade800,
                           text: "KAYIT OL",
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.SIGNUP);
+                          },
                           valuelevation: 0))
                 ],
               )

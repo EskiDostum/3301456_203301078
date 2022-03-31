@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 Widget buildinput({
   required String helpertext,
   String? initialtext,
+  required TextEditingController controller,
 }) {
   return Scaffold(
     body: Center(
@@ -19,6 +20,7 @@ Widget buildinput({
           // borderRadius: const BorderRadius.all( Radius.circular(50), çerçeviyi kenarlarını yuvarlak yapıyordu
         ),
         child: TextFormField(
+            controller: controller,
             maxLength: 15,
             initialValue: initialtext,
             decoration: InputDecoration(
