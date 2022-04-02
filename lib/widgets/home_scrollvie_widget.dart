@@ -30,7 +30,7 @@ class TasarimWidget extends StatelessWidget {
               height: 150.h,
               decoration: BoxDecoration(
                 image: DecorationImage(image: liste[index], fit: BoxFit.cover),
-                border: Border.all(width: 1, color: Colors.black),
+                border: Border.all(width: 1.w, color: Colors.black),
               ),
               child: InkWell(
                 onTap: () {

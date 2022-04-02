@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mobilprogramlamaodev/widgets/constants.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
@@ -63,8 +64,8 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      width: 200,
-                      height: 100,
+                      width: 200.w,
+                      height: 100.h,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           border:

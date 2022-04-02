@@ -14,10 +14,9 @@ void main() {
   runApp(MyApp());
 }
 
-// kodu çaldım
+// kodu çaldım hızlı başlangıç rehberi olarak kullanılması gerektiği yazıyor
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  //sdafasdf
 
   @override
   Widget build(BuildContext context) {

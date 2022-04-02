@@ -22,7 +22,7 @@ class Settings extends StatelessWidget {
           butonbuild(
               text: "Kişisel Bilgileri Güncelle",
               onPressed: () {
-                Get.to(PersonUpdate());
+                Get.to(const PersonUpdate());
               }),
           butonbuild(
               text: "Kart Bilgileri",

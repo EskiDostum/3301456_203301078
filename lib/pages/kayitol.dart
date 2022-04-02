@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:mobilprogramlamaodev/routes/apppages.dart';
+import 'package:mobilprogramlamaodev/widgets/alertdialog.dart';
 import 'package:mobilprogramlamaodev/widgets/constants.dart';
-import 'package:mobilprogramlamaodev/pages/person_update.dart';
 import 'package:mobilprogramlamaodev/widgets/butonbuild1.dart';
 import 'package:mobilprogramlamaodev/widgets/textformfieldbuild.dart';
 
@@ -74,7 +76,11 @@ class _KayitOlPageState extends State<KayitOlPage> {
                               builder: (BuildContext context) {
                                 return alertDialoga();
                               });
-                          setState(() {});
+                          setState(() {
+                            Future.delayed(const Duration(seconds: 3), () {
+                              Get.toNamed(Routes.HOME);
+                            });
+                          });
                         }))
               ],
             ),

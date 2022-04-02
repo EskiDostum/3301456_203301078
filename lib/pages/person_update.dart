@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mobilprogramlamaodev/widgets/alertdialog.dart';
 import 'package:mobilprogramlamaodev/widgets/constants.dart';
-import 'package:mobilprogramlamaodev/models/insaninfo.dart';
 import 'package:mobilprogramlamaodev/pages/kayitol.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
 import 'package:mobilprogramlamaodev/widgets/textformfieldbuild.dart';
@@ -11,7 +11,7 @@ import '../widgets/butonbuild1.dart';
 import '../widgets/drawerbuild.dart';
 
 class PersonUpdate extends StatefulWidget {
-  PersonUpdate({Key? key}) : super(key: key);
+  const PersonUpdate({Key? key}) : super(key: key);
   static TextEditingController nametext = TextEditingController();
   static TextEditingController passwordtext = TextEditingController();
   static String name = "";
@@ -45,9 +45,9 @@ class _PersonUpdateState extends State<PersonUpdate> {
                 Row(
                   children: [
                     Container(
-                      width: 50,
+                      width: 50.w,
                     ),
-                    Text(" Ad-Soyad = ${PersonUpdate.name} ")
+                    Text(" Ad-Soyad = ${KayitOlPage.nametext.text} ")
                   ],
                 ),
                 // textformfiedl kısmı gelecek
@@ -60,7 +60,7 @@ class _PersonUpdateState extends State<PersonUpdate> {
                 Row(
                   children: [
                     Container(
-                      width: 50,
+                      width: 50.w,
                     ),
                     const Text("Şifreniz")
                   ],
@@ -89,6 +89,7 @@ class _PersonUpdateState extends State<PersonUpdate> {
                   setState(() {
                     PersonUpdate.name = KayitOlPage.nametext.text.toString();
                     KayitOlPage.nametext.text = "";
+
                     Future.delayed(const Duration(seconds: 3), () {
                       Get.toNamed(Routes.HOME);
                     });
@@ -99,19 +100,4 @@ class _PersonUpdateState extends State<PersonUpdate> {
       ),
     );
   }
-}
-
-Widget alertDialoga() {
-  return AlertDialog(
-    title: Text("İşleminiz Gerçekleşmiştir"),
-    content: SizedBox(
-      height: 45.h,
-      child: Column(
-        children: [
-          Text("İsminiz ${PersonUpdate.name}"),
-          Text("Şifreniz : ${KayitOlPage.passwordtext.text}")
-        ],
-      ),
-    ),
-  );
 }

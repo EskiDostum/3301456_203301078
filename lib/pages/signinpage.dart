@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
 import 'package:mobilprogramlamaodev/widgets/butonbuild1.dart';
@@ -12,7 +13,7 @@ class SignInpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          width: 700,
+          width: 700.w,
           decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
             Color(0xFF1A237E),
@@ -41,8 +42,8 @@ class SignInpage extends StatelessWidget {
                         style: TextStyle(fontSize: 23),
                       ),
                       SizedBox(
-                        height: 65,
-                        width: 300,
+                        height: 65.h,
+                        width: 300.w,
                         child: buildinput(
                             helpertext: "Kullanıcı Adınız",
                             controller: nametext),
@@ -52,8 +53,8 @@ class SignInpage extends StatelessWidget {
                         style: TextStyle(fontSize: 23),
                       ),
                       SizedBox(
-                        height: 65,
-                        width: 300,
+                        height: 65.h,
+                        width: 300.w,
                         child: buildinput(
                             helpertext: "Şifreniz", controller: passwordtext),
                       ),

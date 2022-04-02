@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // SADE BUTON TASARIMI
 // biraz daha sade buton tasarımı
@@ -14,8 +15,8 @@ Widget butonbuild2(
     style: ElevatedButton.styleFrom(
         primary: const Color(0xFFFFAB40),
         elevation: 0,
-        maximumSize: const Size(250, 60),
-        minimumSize: const Size(0, 45),
+        maximumSize: Size(250.w, 60.h),
+        minimumSize: Size(0.w, 45.h),
         onPrimary: Colors.blueGrey),
     onPressed: () {
       onPressed();

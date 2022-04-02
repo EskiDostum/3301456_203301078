@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
 import 'butonbuild2.dart';
 import 'package:get/get.dart';
@@ -11,16 +12,16 @@ class DrawerBuildWidget extends StatelessWidget {
 // Drawer
     return SizedBox(
       // normalde container hata olursa dönüştür
-      width: 255,
-      height: 1000,
+      width: 255.w,
+      height: 1000.h,
       child: Drawer(
         backgroundColor: Colors.brown, // drawer renk ayarı
         child: Column(children: [
           // appbar tarzında yaptığım bir container
           Container(
             // üst başlık ayarları
-            height: 150,
-            width: 500,
+            height: 150.h,
+            width: 500.w,
 
             decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [

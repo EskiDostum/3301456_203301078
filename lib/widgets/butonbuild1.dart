@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // DETAYLI BUTON TASARIMI
 // bu widget insanların bilgilerinde kullanılacak
@@ -16,7 +17,7 @@ Widget butonbuild(
       style: ElevatedButton.styleFrom(
           primary: buttonColor,
           elevation: valuelevation,
-          minimumSize: const Size(0, 65),
+          minimumSize: Size(0.w, 65.h),
           onPrimary: Colors.blueGrey),
       child: Row(
         children: [
