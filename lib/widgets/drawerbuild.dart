@@ -67,7 +67,13 @@ class DrawerBuildWidget extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(Routes.SIGNIN);
                   },
-                  icon: Icons.logout)
+                  icon: Icons.logout),
+              butonbuild2(
+                  text: "Grafik Tablosu",
+                  onPressed: () {
+                    Get.toNamed(Routes.Graphic);
+                  },
+                  icon: Icons.chat_rounded)
             ],
           ),
         ]),

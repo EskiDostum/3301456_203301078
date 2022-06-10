@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names, prefer_const_constructors
 
 import 'package:get/get.dart';
+import 'package:mobilprogramlamaodev/pages/graphicpage/graphicpage.dart';
 import 'package:mobilprogramlamaodev/pages/kayitol.dart';
 import 'package:mobilprogramlamaodev/pages/signinpage.dart';
 import 'package:mobilprogramlamaodev/pages/errorpage.dart';
@@ -17,7 +18,7 @@ import 'package:mobilprogramlamaodev/pages/settings.dart';
 part 'approuters.dart';
 
 class AppPages {
-  static const INITIAL = Routes.SIGNIN;
+  static const INITIAL = Routes.Graphic;
   static final routes = [
     GetPage(name: "/errorpage", page: () => ErrorPage()),
     GetPage(name: "/homepage", page: () => HomePage()),
@@ -29,5 +30,6 @@ class AppPages {
     GetPage(name: "/Testerepage", page: () => Testerepage()),
     GetPage(name: "/Karistiricipage", page: () => Karistiricipage()),
     GetPage(name: "/KayitOlPage", page: () => KayitOlPage()),
+    GetPage(name: "/GraphicPage", page: () => GraphicPage()),
   ];
 }

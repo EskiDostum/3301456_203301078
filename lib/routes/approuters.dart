@@ -13,4 +13,5 @@ abstract class Routes {
   static const TESTERE = "/Testerepage";
   static const KARISTIRICI = "/Karistiricipage";
   static const SIGNUP = "/KayitOlPage";
+  static const Graphic = "/GraphicPage";
 }
