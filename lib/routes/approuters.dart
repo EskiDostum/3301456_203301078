@@ -14,4 +14,6 @@ abstract class Routes {
   static const KARISTIRICI = "/Karistiricipage";
   static const SIGNUP = "/KayitOlPage";
   static const Graphic = "/GraphicPage";
+  static const UserApi = "/UserApi";
+  static const Albumapi = "/AlbumPage";
 }

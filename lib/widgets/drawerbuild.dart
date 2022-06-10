@@ -73,6 +73,18 @@ class DrawerBuildWidget extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(Routes.Graphic);
                   },
+                  icon: Icons.chat_rounded),
+              butonbuild2(
+                  text: "Api Tasarım 1 ",
+                  onPressed: () {
+                    Get.toNamed(Routes.UserApi);
+                  },
+                  icon: Icons.chat_rounded),
+              butonbuild2(
+                  text: "Api Tasarım 2 ",
+                  onPressed: () {
+                    Get.toNamed(Routes.Albumapi);
+                  },
                   icon: Icons.chat_rounded)
             ],
           ),
