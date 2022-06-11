@@ -1,6 +1,8 @@
 // ignore_for_file: constant_identifier_names, prefer_const_constructors
 
 import 'package:get/get.dart';
+import 'package:mobilprogramlamaodev/pages/animasyon/animation_one.dart';
+import 'package:mobilprogramlamaodev/pages/animasyon/animationtwo.dart';
 import 'package:mobilprogramlamaodev/pages/graphic/graphicpage.dart';
 import 'package:mobilprogramlamaodev/pages/kayitol.dart';
 import 'package:mobilprogramlamaodev/pages/pageapi/apipage.dart';
@@ -19,7 +21,7 @@ import 'package:mobilprogramlamaodev/pages/settings.dart';
 part 'approuters.dart';
 
 class AppPages {
-  static const INITIAL = Routes.Albumapi;
+  static const INITIAL = Routes.anibuilder;
   static final routes = [
     GetPage(name: "/errorpage", page: () => ErrorPage()),
     GetPage(name: "/homepage", page: () => HomePage()),
@@ -34,5 +36,7 @@ class AppPages {
     GetPage(name: "/GraphicPage", page: () => GraphicPage()),
     GetPage(name: "/UserApi", page: () => UserApi()),
     GetPage(name: "/AlbumPage", page: () => AlbumPage()),
+    GetPage(name: "/Animationone", page: () => Animationone()),
+    GetPage(name: "/AnimationBuilder", page: () => AnimationBuilder()),
   ];
 }

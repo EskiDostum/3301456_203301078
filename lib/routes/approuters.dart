@@ -16,4 +16,6 @@ abstract class Routes {
   static const Graphic = "/GraphicPage";
   static const UserApi = "/UserApi";
   static const Albumapi = "/AlbumPage";
+  static const Animationone = "/Animationone";
+  static const anibuilder = "AnimationBuilder";
 }
