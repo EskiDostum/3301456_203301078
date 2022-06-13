@@ -31,12 +31,12 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
-
                 TasarimWidget(
                     liste: productGalleryKiyma,
                     ontap: () {
                       Get.toNamed(Routes.KIYMA);
                     }),
+
                 const Center(
                   child: Text(
                     "Testere Makineleri",

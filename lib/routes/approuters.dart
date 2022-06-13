@@ -17,5 +17,8 @@ abstract class Routes {
   static const UserApi = "/UserApi";
   static const Albumapi = "/AlbumPage";
   static const Animationone = "/Animationone";
-  static const anibuilder = "AnimationBuilder";
+  static const anibuilder = "/AnimationBuilder";
+  static const deneme = "/Firestorecode";
+  static const gesture = "/GesturesPage";
+  static const litedata = "/sqlitedata";
 }

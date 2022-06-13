@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mobilprogramlamaodev/models/sqlite/sq_helper.dart';
+import 'package:mobilprogramlamaodev/models/sqlite/sq_helper_modul.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
 import 'package:mobilprogramlamaodev/widgets/alertdialog.dart';
 import 'package:mobilprogramlamaodev/widgets/constants.dart';
@@ -9,13 +13,22 @@ import 'package:mobilprogramlamaodev/widgets/textformfieldbuild.dart';
 
 class KayitOlPage extends StatefulWidget {
   const KayitOlPage({Key? key}) : super(key: key);
-  static TextEditingController nametext = TextEditingController();
-  static TextEditingController passwordtext = TextEditingController();
+
   @override
   State<KayitOlPage> createState() => _KayitOlPageState();
 }
 
 class _KayitOlPageState extends State<KayitOlPage> {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
+  TextEditingController emailk = TextEditingController();
+  TextEditingController passwordtextk = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    auth = FirebaseAuth.instance;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +40,7 @@ class _KayitOlPageState extends State<KayitOlPage> {
             padding: const EdgeInsets.all(7),
             child: Container(
               width: 350.w,
-              height: 150.h,
+              height: 122.h,
               decoration: BoxDecoration(
                 color: Colors.blueAccent,
                 borderRadius: BorderRadius.circular(60),
@@ -49,15 +62,13 @@ class _KayitOlPageState extends State<KayitOlPage> {
                 SizedBox(
                   width: 300.w,
                   height: 65.h,
-                  child: buildinput(
-                      helpertext: "İsminiz ", controller: KayitOlPage.nametext),
+                  child: buildinput(helpertext: "İsminiz ", controller: emailk),
                 ),
                 SizedBox(
                   width: 300.w,
                   height: 65.h,
                   child: buildinput(
-                      helpertext: "Şifreniz ",
-                      controller: KayitOlPage.passwordtext),
+                      helpertext: "Şifreniz ", controller: passwordtextk),
                 ),
               ],
             ),
@@ -69,24 +80,65 @@ class _KayitOlPageState extends State<KayitOlPage> {
                 Flexible(
                     fit: FlexFit.tight,
                     child: butonbuild(
-                        text: "Kayıt Olun",
-                        onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return alertDialoga();
-                              });
+                      text: "Kayıt Olun",
+                      onPressed: () async {
+                        if (passwordtextk.text.length > 6) {
+                          authadddata();
+                          //   userdatadd();
+                          // sqlfile add
+                          DataBaseHandler().insertReports([
+                            Report(
+                                name: "Alper",
+                                email: emailk.text,
+                                password: passwordtextk.text)
+                          ]);
+                          //
+                          // showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) {
+                          //       return alertDialoga(
+                          //           text1: ""); // buraya bilgi eklenecek
+                          //     });
                           setState(() {
                             Future.delayed(const Duration(seconds: 3), () {
                               Get.toNamed(Routes.HOME);
                             });
                           });
-                        }))
+                        } else {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return alertDialoga(
+                                    text1:
+                                        " Min karakter sayısı 6 veya mail düzgün girin ");
+                              });
+                        }
+                      },
+                    ))
               ],
             ),
           )
         ],
       ),
     );
+  }
+
+  // auth eleman ekleme
+  //ALEEEEEEEERTTTTTT ( LACOLHOST ÜZERİNDEN YAPILDIĞINDA TİCKER HATASI ALINIYOR ÇÖZ )
+  void authadddata() async {
+    var _userCredantial = await auth.createUserWithEmailAndPassword(
+        email: emailk.text, password: passwordtextk.text);
+  }
+
+//firestore için ekleme alanı
+  userdatadd(String id) async {
+    // sanırım sıkıntı çıkartıyor  var id = auth.idTokenChanges();
+    Map<String, dynamic> _adduser = <String, dynamic>{};
+    _adduser["Name"] = "Eski";
+    _adduser["Lastname"] = "Dostum";
+    _adduser["E-Mail"] = emailk.text;
+    _adduser["password"] = passwordtextk.text;
+    _adduser["Userid"] = id;
+    _firestore.collection("Users").add(_adduser);
   }
 }

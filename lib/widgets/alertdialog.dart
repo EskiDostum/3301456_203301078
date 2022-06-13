@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../pages/kayitol.dart';
 
-Widget alertDialoga() {
+Widget alertDialoga({required String text1}) {
   return AlertDialog(
     title: const Text("İşleminiz Gerçekleşmiştir"),
     content: SizedBox(
       height: 45.h,
       child: Column(
-        children: [
-          Text("İsminiz  ${KayitOlPage.nametext.text} "),
-          Text("Şifreniz : ${KayitOlPage.passwordtext.text}")
-        ],
+        children: [Text(text1.toString())],
       ),
     ),
   );

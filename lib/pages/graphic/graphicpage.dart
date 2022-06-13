@@ -5,6 +5,7 @@ import 'package:mobilprogramlamaodev/widgets/constants.dart';
 import 'package:mobilprogramlamaodev/widgets/drawerbuild.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+// code düzenlenmiştir ve veri ekleme yapılmıştır
 class GraphicPage extends StatelessWidget {
   const GraphicPage({Key? key}) : super(key: key);
 

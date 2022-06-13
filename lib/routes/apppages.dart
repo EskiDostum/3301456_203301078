@@ -3,6 +3,7 @@
 import 'package:get/get.dart';
 import 'package:mobilprogramlamaodev/pages/animasyon/animation_one.dart';
 import 'package:mobilprogramlamaodev/pages/animasyon/animationtwo.dart';
+import 'package:mobilprogramlamaodev/pages/gestures/gestures.dart';
 import 'package:mobilprogramlamaodev/pages/graphic/graphicpage.dart';
 import 'package:mobilprogramlamaodev/pages/kayitol.dart';
 import 'package:mobilprogramlamaodev/pages/pageapi/apipage.dart';
@@ -17,11 +18,14 @@ import 'package:mobilprogramlamaodev/pages/product/productkiymapage.dart';
 import 'package:mobilprogramlamaodev/pages/product/producttesterepage.dart';
 
 import 'package:mobilprogramlamaodev/pages/settings.dart';
+import 'package:mobilprogramlamaodev/pages/sqlitepage/sqlitepage.dart';
+
+import '../denemeleriçinfirestore/firestore.dart';
 
 part 'approuters.dart';
 
 class AppPages {
-  static const INITIAL = Routes.anibuilder;
+  static const INITIAL = Routes.litedata;
   static final routes = [
     GetPage(name: "/errorpage", page: () => ErrorPage()),
     GetPage(name: "/homepage", page: () => HomePage()),
@@ -38,5 +42,8 @@ class AppPages {
     GetPage(name: "/AlbumPage", page: () => AlbumPage()),
     GetPage(name: "/Animationone", page: () => Animationone()),
     GetPage(name: "/AnimationBuilder", page: () => AnimationBuilder()),
+    GetPage(name: "/Firestorecode", page: () => Firestorecode()),
+    GetPage(name: "/GesturesPage", page: () => GesturesPage()),
+    GetPage(name: "/sqlitedata", page: () => sqlitedata()),
   ];
 }

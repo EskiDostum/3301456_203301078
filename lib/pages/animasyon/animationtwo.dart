@@ -40,6 +40,7 @@ class _AnimationBuilderState extends State<AnimationBuilder>
             //   animation: controller,
             //   builder: (BuildContext context, widget) {
             //     return
+            // ignore: avoid_unnecessary_containers
             Container(
           // height: sequenceAnimation["widthheight"].value,
           // width: sequenceAnimation["widthheight"].value,

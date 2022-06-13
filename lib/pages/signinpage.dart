@@ -1,14 +1,31 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
+import 'package:mobilprogramlamaodev/widgets/alertdialog.dart';
 import 'package:mobilprogramlamaodev/widgets/butonbuild1.dart';
 import 'package:mobilprogramlamaodev/widgets/textformfieldbuild.dart';
 
-class SignInpage extends StatelessWidget {
-  const SignInpage({Key? key}) : super(key: key);
-  static final TextEditingController nametext = TextEditingController();
-  static final TextEditingController passwordtext = TextEditingController();
+class SignInpage extends StatefulWidget {
+  SignInpage({Key? key}) : super(key: key);
+
+  @override
+  State<SignInpage> createState() => _SignInpageState();
+}
+
+class _SignInpageState extends State<SignInpage> {
+  final TextEditingController nametextlo = TextEditingController();
+
+  final TextEditingController passwordtextlo = TextEditingController();
+
+  FirebaseAuth auth = FirebaseAuth.instance;
+  @override
+  void initState() {
+    super.initState();
+    auth = FirebaseAuth.instance;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +63,7 @@ class SignInpage extends StatelessWidget {
                         width: 300.w,
                         child: buildinput(
                             helpertext: "Kullanıcı Adınız",
-                            controller: nametext),
+                            controller: nametextlo),
                       ),
                       const Text(
                         "Şifreniz",
@@ -56,7 +73,7 @@ class SignInpage extends StatelessWidget {
                         height: 65.h,
                         width: 300.w,
                         child: buildinput(
-                            helpertext: "Şifreniz", controller: passwordtext),
+                            helpertext: "Şifreniz", controller: passwordtextlo),
                       ),
                     ]),
               ),
@@ -68,8 +85,21 @@ class SignInpage extends StatelessWidget {
                       child: butonbuild(
                         buttonColor: Colors.blueGrey.shade800,
                         text: " Giriş",
-                        onPressed: () {
-                          Get.toNamed(Routes.HOME);
+                        onPressed: () async {
+                          try {
+                            var _userCredantial =
+                                await auth.signInWithEmailAndPassword(
+                                    email: nametextlo.text,
+                                    password: passwordtextlo.text);
+                            Get.toNamed(Routes.HOME);
+                          } catch (e) {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return alertDialoga(
+                                      text1: "işlem hatalıdır ");
+                                });
+                          }
                         },
                         valuelevation: 0,
                       )),

@@ -40,6 +40,8 @@ dependencies:
   dio: ^4.0.6
   syncfusion_flutter_charts: ^20.1.58+1
   flutter_sequence_animation: ^3.0.1
+  cloud_firestore: ^3.1.17
+  sqflite: ^2.0.2+1
 
 dev_dependencies:
   flutter_test:

@@ -21,7 +21,7 @@ Widget buildinput({
         ),
         child: TextFormField(
             controller: controller,
-            maxLength: 15,
+            maxLength: 20,
             initialValue: initialtext,
             decoration: InputDecoration(
               focusColor: Colors.black,
