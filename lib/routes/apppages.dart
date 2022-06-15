@@ -25,7 +25,7 @@ import '../denemeleriçinfirestore/firestore.dart';
 part 'approuters.dart';
 
 class AppPages {
-  static const INITIAL = Routes.litedata;
+  static const INITIAL = Routes.HOME;
   static final routes = [
     GetPage(name: "/errorpage", page: () => ErrorPage()),
     GetPage(name: "/homepage", page: () => HomePage()),

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobilprogramlamaodev/routes/apppages.dart';
@@ -9,6 +10,7 @@ class DrawerBuildWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth auth = FirebaseAuth.instance;
 // Drawer
     return SizedBox(
       // normalde container hata olursa dönüştür
@@ -65,15 +67,28 @@ class DrawerBuildWidget extends StatelessWidget {
               butonbuild2(
                   text: "Çıkış",
                   onPressed: () {
+                    auth.signOut();
                     Get.toNamed(Routes.SIGNIN);
                   },
                   icon: Icons.logout),
               butonbuild2(
-                  text: "Grafik Tablosu",
+                  text: "Animasyon",
                   onPressed: () {
-                    Get.toNamed(Routes.Graphic);
+                    Get.toNamed(Routes.Animationone);
                   },
-                  icon: Icons.chat_rounded),
+                  icon: Icons.animation),
+              butonbuild2(
+                  text: "Gestures ",
+                  onPressed: () {
+                    Get.toNamed(Routes.gesture);
+                  },
+                  icon: Icons.gesture),
+              butonbuild2(
+                  text: "sqflite  ",
+                  onPressed: () {
+                    Get.toNamed(Routes.litedata);
+                  },
+                  icon: Icons.memory_sharp),
             ],
           ),
         ]),

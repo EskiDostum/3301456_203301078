@@ -84,13 +84,18 @@ class _AnimationoneState extends State<Animationone>
                 )),
             Container(
               color: animation.value,
-              height: 75.h,
-              width: 75.w,
+              height: 100.h,
+              width: 100.w,
               child: InkWell(
                 child: const Center(
-                  child: Text("Grafik sayfası "),
+                  child: Text(
+                    "Grafik sayfası ",
+                    style: TextStyle(fontSize: 20, color: Colors.orange),
+                  ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.Graphic);
+                },
               ),
             )
           ],
