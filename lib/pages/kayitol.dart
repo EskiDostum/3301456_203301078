@@ -80,11 +80,65 @@ class _KayitOlPageState extends State<KayitOlPage> {
                 Flexible(
                     fit: FlexFit.tight,
                     child: butonbuild(
-                      text: "Kayıt Olun",
-                      onPressed: () async {
-                        if (passwordtextk.text.length > 6) {
+                        text: "Kayıt Olun",
+                        onPressed: () async {
+                          try {
+                            await auth.createUserWithEmailAndPassword(
+                                email: emailk.text,
+                                password: passwordtextk.text);
+                            userdatadd();
+                            DataBaseHandler().insertReports([
+                              Report(
+                                  name: "Alper",
+                                  email: emailk.text,
+                                  password: passwordtextk.text)
+                            ]);
+                            setState(() {
+                              Future.delayed(const Duration(seconds: 3), () {
+                                Get.toNamed(Routes.HOME);
+                              });
+                            });
+                          } catch (e) {
+                            return showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return alertDialoga(
+                                      text1: " hatalı işlem yapılmıştır ");
+                                });
+                          }
+                        }))
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  // auth eleman ekleme
+  //ALEEEEEEEERTTTTTT ( LACOLHOST ÜZERİNDEN YAPILDIĞINDA TİCKER HATASI ALINIYOR ÇÖZ )
+  void authadddata() async {
+    var _userCredantial = await auth.createUserWithEmailAndPassword(
+        email: emailk.text, password: passwordtextk.text);
+  }
+
+//firestore için ekleme alanı
+  userdatadd() async {
+    // sanırım sıkıntı çıkartıyor  var id = auth.idTokenChanges();
+    Map<String, dynamic> _adduser = <String, dynamic>{};
+    _adduser["Name"] = "Eski";
+    _adduser["Lastname"] = "Dostum";
+    _adduser["E-Mail"] = emailk.text;
+    _adduser["password"] = passwordtextk.text;
+    // _adduser["Userid"] = ;
+    _firestore.collection("Users").add(_adduser);
+  }
+}
+
+/*  
+ if (passwordtextk.text.length > 6 && " Select * from emailk.text where LIKE " %@hotmail.com%" ") {
                           authadddata();
-                          //   userdatadd();
+                          userdatadd();
                           // sqlfile add
                           DataBaseHandler().insertReports([
                             Report(
@@ -109,36 +163,7 @@ class _KayitOlPageState extends State<KayitOlPage> {
                               context: context,
                               builder: (BuildContext context) {
                                 return alertDialoga(
-                                    text1:
-                                        " Min karakter sayısı 6 veya mail düzgün girin ");
+                                    text1: " Min karakter sayısı 6  ");
                               });
                         }
-                      },
-                    ))
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  // auth eleman ekleme
-  //ALEEEEEEEERTTTTTT ( LACOLHOST ÜZERİNDEN YAPILDIĞINDA TİCKER HATASI ALINIYOR ÇÖZ )
-  void authadddata() async {
-    var _userCredantial = await auth.createUserWithEmailAndPassword(
-        email: emailk.text, password: passwordtextk.text);
-  }
-
-//firestore için ekleme alanı
-  userdatadd(String id) async {
-    // sanırım sıkıntı çıkartıyor  var id = auth.idTokenChanges();
-    Map<String, dynamic> _adduser = <String, dynamic>{};
-    _adduser["Name"] = "Eski";
-    _adduser["Lastname"] = "Dostum";
-    _adduser["E-Mail"] = emailk.text;
-    _adduser["password"] = passwordtextk.text;
-    _adduser["Userid"] = id;
-    _firestore.collection("Users").add(_adduser);
-  }
-}
+                      }, */
